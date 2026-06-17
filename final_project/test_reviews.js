@@ -7,19 +7,16 @@ async function runAll() {
 
     // Login to get session cookie
     let cookie = '';
-    let loginOutput = `curl -X POST -H "Content-Type: application/json" -d "{\\"username\\":\\"user1\\",\\"password\\":\\"pass1\\"}" http://localhost:5000/customer/login\n`;
     try {
         const res = await axios.post('http://localhost:5000/customer/login', {username: 'user1', password: 'pass1'});
-        loginOutput += res.data + '\n';
         cookie = res.headers['set-cookie'][0];
     } catch (err) {
-        loginOutput += err.message + '\n';
+        console.log('Login error:', err.message);
     }
-    fs.writeFileSync('login', loginOutput);
-    console.log('login:', loginOutput);
 
-    // Add review with ?review= in URL
-    const reviewUrl = 'http://localhost:5000/customer/auth/review/1?review=Great book!';
+    // Add review - NO spaces in review text
+    const reviewValue = 'Excellent';
+    const reviewUrl = `http://localhost:5000/customer/auth/review/1?review=${reviewValue}`;
     let reviewCmd = `curl -X PUT -H "Cookie: ${cookie.split(';')[0]}" "${reviewUrl}"`;
     let reviewOutput = `${reviewCmd}\n`;
     try {
@@ -29,7 +26,7 @@ async function runAll() {
         reviewOutput += err.message + '\n';
     }
     fs.writeFileSync('reviewadded', reviewOutput);
-    console.log('reviewadded:', reviewOutput);
+    console.log('reviewadded:\n', reviewOutput);
 
     // Delete review
     const deleteUrl = 'http://localhost:5000/customer/auth/review/1';
@@ -42,7 +39,7 @@ async function runAll() {
         delOutput += err.message + '\n';
     }
     fs.writeFileSync('deletereview', delOutput);
-    console.log('deletereview:', delOutput);
+    console.log('deletereview:\n', delOutput);
 }
 
 runAll();

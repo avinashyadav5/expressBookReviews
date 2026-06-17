@@ -1,2 +1,2 @@
-curl -X DELETE -H "Cookie: connect.sid=s%3AFY0pEwStj7_csvYW-pCm09N1KiThjPSc.55E0wsOHVxP8u7vQNQlIg%2FwukUGy6V1D1bKW2T%2FHjr4" "http://localhost:5000/customer/auth/review/1"
+curl -X DELETE -H "Cookie: connect.sid=s%3AOmwIdV8oJBqi5_0SSSvHTtMkmcO1LfaM.gwUSrGll8deehXaxHO5%2BqHrGcvoTKc5%2F9fhLXBhQ0YI" "http://localhost:5000/customer/auth/review/1"
 {"message":"Reviews for the ISBN 1 posted by the user user1 deleted.","reviews":{}}
