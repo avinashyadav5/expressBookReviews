@@ -1,2 +1,2 @@
-curl -X PUT -H "Cookie: connect.sid=s%3AOmwIdV8oJBqi5_0SSSvHTtMkmcO1LfaM.gwUSrGll8deehXaxHO5%2BqHrGcvoTKc5%2F9fhLXBhQ0YI" "http://localhost:5000/customer/auth/review/1?review=Excellent"
-{"message":"The review for the book with ISBN 1 has been added/updated.","reviews":{"user1":"Excellent"}}
+curl -X PUT -H "Cookie: connect.sid=s%3AxajXvzPmb-Z3D-nzpnv87tJo9aa2EyAq.vmS1r%2FUIw91yxwrtSV3GItuLIQvREQSERcrMyU1YJNA" "http://localhost:5000/customer/auth/review/1?review=Excellent"
+The review for the book with ISBN 1 has been added/updated.
